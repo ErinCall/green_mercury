@@ -29,3 +29,11 @@ Scenario: Users are asked to create an email
   And I am signed in
   And I am on the "home" page
   Then I should see "add an email address"
+
+Scenario: Newly-confirmed users aren't asked to create an email
+  Given I have a social account
+  And my account has a confirmation token
+  And I am signed in
+  When I visit my the page to confirm my email
+  Then I should see "Thanks for confirming your email address!"
+  And I should not see "add an email address"
