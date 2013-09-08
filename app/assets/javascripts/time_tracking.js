@@ -2,5 +2,5 @@
 // All this logic will automatically be available in application.js.
 
 $(document).ready(function() {
-    $('#volunteer_block_on').datepicker();
+    $('#volunteer_block_on').datepicker({ dateFormat: "yy-mm-dd" });
 });
