@@ -1,0 +1,34 @@
+<h3>You have accumulated <%= @hours %> hours volunteering.</h3>
+
+<h3>You will recieve a Perk Point after <%= @hours_to_go %> more hours.</h3>
+
+<h4>Track some volunteer time</h4>
+<%= form_tag do %>
+  <div>
+    I volunteered for
+    <%= text_field :volunteer_block, :hours %>
+    <% if @volunteer_block %>
+      <% @volunteer_block.errors.messages[:hours].each do |error| %>
+        <div class="alert">
+          <%= error %>
+        </div>
+      <% end %>
+    <% end %>
+    hours on
+    <%= date_field :volunteer_block, :on %>
+    <% if @volunteer_block %>
+      <% @volunteer_block.errors.messages[:on].each do |error| %>
+        <div class="alert">
+          <%= error %>
+        </div>
+      <% end %>
+    <% end %>
+    <%= submit_tag(value="I'm Awesome!") %>
+  </div>
+<% end %>
+
+<ul>
+  <% @volunteer_blocks.each do |volunteer_block| %>
+  <li><%= volunteer_block.hours %> hours on <%= volunteer_block.on %></li>
+  <% end %>
+</ul>

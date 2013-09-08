@@ -10,10 +10,16 @@ class ApplicationController < ActionController::Base
 
   after_filter :tell_users_to_have_an_email
 
+  protected
+
   def tell_users_to_have_an_email
     if user_signed_in? && current_user.email.blank?
       flash[:alert] = "Please #{link_to('edit your profile',
         edit_user_registration_path)} and add an email address.".html_safe
     end
+  end
+
+  def require_login
+    redirect_to new_user_session_path unless current_user.present?
   end
 end

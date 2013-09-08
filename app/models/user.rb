@@ -6,10 +6,18 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :rpx_connectable
 
+  has_many :volunteer_blocks
+
   before_create :blank_email_is_null
 
   def has_password?
     encrypted_password.present?
+  end
+
+  def volunteer_hours
+    volunteer_blocks.reduce(0) do |sum, block|
+      sum + block.hours
+    end
   end
 
   protected
