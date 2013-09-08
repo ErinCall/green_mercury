@@ -10,3 +10,12 @@ div.alert, div.field_with_errors {
 div.field_with_errors input {
   background-color: $form_error;
 }
+
+span.editable {
+  cursor: pointer;
+  font-weight: bold;
+
+  form {
+    display: inline;
+  }
+}

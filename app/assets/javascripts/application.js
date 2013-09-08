@@ -15,4 +15,6 @@
 //= require jquery.ui.datepicker
 //= require twitter/bootstrap
 //= require turbolinks
+//= require jquery.jeditable.mini.js
+//= require jquery.jeditable.datepicker.js
 //= require_tree .

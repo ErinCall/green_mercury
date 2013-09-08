@@ -29,6 +29,8 @@
 
 <ul>
   <% @volunteer_blocks.each do |volunteer_block| %>
-  <li><%= volunteer_block.hours %> hours on <%= volunteer_block.on %></li>
+  <li><%= editable_field volunteer_block, :hours %>
+  hours on
+  <%= editable_field volunteer_block, :on, type: 'datepicker', datepicker: { dateFormat: 'yy-mm-dd' } %></li>
   <% end %>
 </ul>

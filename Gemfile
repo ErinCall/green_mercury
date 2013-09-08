@@ -32,6 +32,7 @@ gem 'asset_sync'
 gem 'unicorn'
 gem 'newrelic_rpm'
 gem 'httparty'
+gem 'jeditable-rails'
 
 group :production do
   gem 'rails_12factor'

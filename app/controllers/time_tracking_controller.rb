@@ -21,4 +21,20 @@ class TimeTrackingController < ApplicationController
       render :index
     end
   end
+
+  def edit
+    volunteer_block = VolunteerBlock.find(params[:id])
+    volunteer_block.update_attributes(
+      params[:volunteer_block].permit(:on, :hours))
+    volunteer_block.save
+    respond_to do |format|
+      format.html do
+        if request.xhr?
+          render :text => params[:volunteer_block].values.first
+        else
+          redirect_to time_tracking_path
+        end
+      end
+    end
+  end
 end
