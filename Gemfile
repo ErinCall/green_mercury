@@ -41,8 +41,6 @@ group :doc do
 end
 
 group :test do
-  gem 'shoulda-matchers'
-  gem 'capybara'
   gem 'poltergeist'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'connection_pool'
@@ -68,7 +66,6 @@ group :development do
   gem 'librarian-puppet'
   gem 'capistrano'
   gem 'rvm-capistrano'
-  gem 'better_errors'
   gem 'quiet_assets'
   gem 'webrick', '1.3.1'
   gem 'letter_opener'
